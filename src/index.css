@@ -1,0 +1,99 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  @apply bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300;
+}
+
+.Button {
+  @apply px-4 py-2 rounded font-bold cursor-pointer transition-transform transform hover:scale-105;
+}
+
+.Button.primary {
+  @apply bg-blue-500 text-white border-none hover:bg-blue-600;
+}
+
+.Button.secondary {
+  @apply bg-transparent text-blue-500 border border-blue-500 hover:bg-blue-100 dark:hover:bg-gray-700;
+}
+
+.IconButton {
+  @apply bg-transparent border-none cursor-pointer p-1;
+}
+
+.Input {
+  @apply w-full p-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600;
+}
+
+.DialogOverlay {
+  @apply bg-black bg-opacity-50 fixed inset-0 animate-fadeIn;
+}
+
+.DialogContent {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-md max-h-[85vh] p-6 animate-contentShow;
+}
+
+.DialogTitle {
+  @apply font-bold mb-4;
+}
+
+.DropdownMenuContent {
+  @apply min-w-[120px] bg-white dark:bg-gray-700 rounded-md p-1 shadow-lg animate-scaleIn;
+}
+
+.DropdownMenuItem {
+  @apply text-sm text-gray-700 dark:text-gray-200 rounded flex items-center h-8 px-2 relative pl-6 select-none outline-none hover:bg-gray-100 dark:hover:bg-gray-600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes contentShow {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Define the animate-fadeIn class */
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Define the animate-contentShow class */
+.animate-contentShow {
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Define the animate-scaleIn class */
+.animate-scaleIn {
+  animation: scaleIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Enhanced Search Bar */
+.Input.search {
+  @apply w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-colors duration-300;
+}
+
+.Input.search::placeholder {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.Input.search + .SearchIcon {
+  @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400;
+}
+
+/* Enhanced Add Subreddit Button */
+.Button.add-subreddit {
+  @apply bg-green-500 text-white border-none hover:bg-green-600 flex items-center justify-center px-6 py-3 rounded-full shadow-lg transition-transform transform hover:scale-110;
+}
+
+.Button.add-subreddit .PlusIcon {
+  @apply mr-2;
+}
